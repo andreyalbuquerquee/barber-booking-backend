@@ -1,9 +1,13 @@
 import { Router } from 'express';
+import { routeAdapter } from '../adapters/routeAdapter';
+import { makeSignInController } from '../../factories/user/makeSignInController';
 const r = Router();
 
 r.get('/healthcheck', async (req, res) => { 
   res.send({ ok: true }).status(201);
  });
+
+r.post('/sign-in', routeAdapter(makeSignInController()));
 
 r.get('/services', async (req, res) => { /* listar serviços */ });
 

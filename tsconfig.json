@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2021",
-    "module": "node16",
+    "module": "preserve",
     "strict": true,
     "outDir": "dist",
     "esModuleInterop": true,
-    "moduleResolution": "node16"
+    "moduleResolution": "bundler"
   },
   "include": ["src"]
 }
