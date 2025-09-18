@@ -1,5 +1,5 @@
 import type { Request, Response } from 'express';
-import type { Controller } from '../../../application/shared/http/interfaces/Controller';
+import type { Controller } from '../../../../interfaces/http/protocols/Controller';
 
 export function routeAdapter(controller: Controller) {
   return async (request: Request, response: Response) => {

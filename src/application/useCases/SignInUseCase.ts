@@ -1,32 +1,32 @@
 import { compare } from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { env } from '../../config/env';
-import { UnauthorizedHttpError } from '../../application/shared/http/errors/UnauthorizedHttpError';
 import type { UserRepository } from '../../domain/repositories/UserRepository';
+import { UnauthorizedError } from '../errors/UnauthorizedError';
 
-interface IInput {
+interface Input {
   email: string;
   password: string;
 }
 
-interface IOutput {
+interface Output {
   accessToken: string;
 }
 
 export class SignInUseCase {
   constructor(private readonly repository: UserRepository) { }
   
-  async execute({ email, password }: IInput): Promise<IOutput> {
+  async execute({ email, password }: Input): Promise<Output> {
     const account = await this.repository.findByEmail(email);
 
     if (!account) {
-      throw new UnauthorizedHttpError('Credenciais inválidas!');
+      throw new UnauthorizedError('Credenciais inválidas!');
     }
 
     const isPasswordValid = await compare(password, account.passwordHash);
 
     if (!isPasswordValid) {
-      throw new UnauthorizedHttpError('Credenciais inválidas!');
+      throw new UnauthorizedError('Credenciais inválidas!');
     }
 
     const accessToken = jwt.sign(

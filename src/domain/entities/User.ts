@@ -1,7 +1,8 @@
-import { Entity, type EntityProps } from "./Entity";
-import type { RoleCode } from "./Role";
+import { Entity, type EntityOptions } from '../core/Entity';
+import type { Replace } from '../core/Replace';
+import type { RoleCode } from './Role';
 
-export interface UserProps extends EntityProps {
+export interface UserProps {
   name: string;
   email: string;
   passwordHash: string;
@@ -9,12 +10,22 @@ export interface UserProps extends EntityProps {
   isActive: boolean;
 }
 
-export class User extends Entity {
-  private readonly props: UserProps;
+export class User extends Entity<UserProps> {
 
-  constructor(props: UserProps) {
-    super(props);
-    this.props = props;
+  constructor(
+    props: Replace<UserProps, { role?: RoleCode; isActive?: boolean }>,
+    options?: EntityOptions
+  ) {
+    super(
+      {
+        name: props.name,
+        email: props.email.toLowerCase(),
+        passwordHash: props.passwordHash,
+        role: props.role ?? ('BARBER' as RoleCode),
+        isActive: props.isActive ?? true,
+      },
+      options
+    );
   }
 
   get name(): string {
@@ -22,6 +33,7 @@ export class User extends Entity {
   }
   set name(value: string) {
     this.props.name = value;
+    this.touch();
   }
 
   get email(): string {
@@ -29,6 +41,7 @@ export class User extends Entity {
   }
   set email(value: string) {
     this.props.email = value;
+    this.touch();
   }
 
   get passwordHash(): string {
@@ -36,6 +49,7 @@ export class User extends Entity {
   }
   set passwordHash(value: string) {
     this.props.passwordHash = value;
+    this.touch();
   }
 
   get role(): RoleCode {
@@ -43,12 +57,23 @@ export class User extends Entity {
   }
   set role(value: RoleCode) {
     this.props.role = value;
+    this.touch();
   }
 
   get isActive(): boolean {
     return this.props.isActive;
   }
-  set isActive(value: boolean) {
-    this.props.isActive = value;
+  
+  activate() {
+    if (!this.props.isActive) {
+      this.props.isActive = true;
+      this.touch();
+    }
+  }
+  deactivate() {
+    if (this.props.isActive) {
+      this.props.isActive = false;
+      this.touch();
+    }
   }
 }

@@ -5,7 +5,8 @@
     "strict": true,
     "outDir": "dist",
     "esModuleInterop": true,
-    "moduleResolution": "bundler"
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src"]
 }

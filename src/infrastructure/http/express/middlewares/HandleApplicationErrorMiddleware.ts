@@ -1,36 +1,28 @@
 import { ZodError } from 'zod';
-import { HttpError } from '../errors/HttpError';
-import { ErrorMiddleware } from '../interfaces/ErrorMiddleware';
-import { HttpResponse, HttpStatusCode } from '../interfaces/http';
+import { ErrorMiddleware } from '../../../../interfaces/http/protocols/ErrorMiddleware';
+import { HttpResponse, HttpStatusCode } from '../../../../interfaces/http/protocols/http';
+import { ApplicationError } from '../../../../application/errors/ApplicationError';
+import { errorToHttpStatus, serializeError } from '../../../../interfaces/http/errorMapper';
 
 export class HandleApplicationErrorMiddleware implements ErrorMiddleware {
   handle(error: unknown): HttpResponse {
     if (error instanceof ZodError) {
-      const zodErrors = JSON.parse(error.message);
-      const zodErrorMessages = zodErrors.map((e: any) => {
-        const message = e.message;
-
-        if (e.path.length) {
-          return message + '. Erro em: ' + e.path;
-        } else {
-          return message;
-        }
-      });
+      
 
       return {
         statusCode: HttpStatusCode.BAD_REQUEST,
         body: {
-          messages: zodErrorMessages,
+          message: 'VALIDATION FAILED',
+          code: 'VALIDATION',
+          issues: error.issues.map(e => ({ path: e.path.join('.'), message: e.message })),
         }
       };
     }
 
-    if (error instanceof HttpError) {
+    if (error instanceof ApplicationError) {
       return {
-        statusCode: error.statusCode,
-        body: {
-          messages: [error.message],
-        }
+        statusCode: errorToHttpStatus(error),
+        body: serializeError(error),
       };
     }
 

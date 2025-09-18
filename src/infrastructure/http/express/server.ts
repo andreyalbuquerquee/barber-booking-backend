@@ -1,5 +1,5 @@
-import { env } from './config/env';
-import { app } from './main/express/server';
+import { env } from '../../../config/env';
+import { app } from './app';
 
 const PORT = env.PORT;
 

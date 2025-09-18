@@ -16,20 +16,21 @@ export const UserMapper = {
       role: u.role.toLowerCase() as DbRole,
       isActive: u.isActive,
       createdAt: u.createdAt.toISOString(),
-      updatedAt: new Date().toISOString(),
+      updatedAt: u.createdAt.toISOString(),
     };
   },
 
   toDomain(row: UserRowSelect): User {
     return new User({
-      id: row.id,
       name: row.name,
       email: row.email,
       passwordHash: row.passwordHash,
       role: row.role as RoleCode,
       isActive: row.isActive,
-      createdAt: row.createdAt ? new Date(row.createdAt) : undefined,
-      updatedAt: row.updatedAt ? new Date(row.updatedAt) : undefined,
+    }, { 
+      id: row.id, 
+      createdAt: new Date(row.createdAt), 
+      updatedAt: new Date(row.updatedAt),
     });
   },
 };

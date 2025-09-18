@@ -1,7 +1,7 @@
 {
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/main.ts",
+    "dev": "tsx watch src/index.ts",
     "build": "tsup src/main.ts --format cjs --dts false",
     "test": "vitest"
   },

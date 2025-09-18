@@ -1,4 +1,4 @@
-import { ErrorMiddleware } from '../../../application/shared/http/interfaces/ErrorMiddleware';
+import { ErrorMiddleware } from '../../../../interfaces/http/protocols/ErrorMiddleware';
 import type { NextFunction, Request, Response } from 'express';
 
 export function errorMiddlewareAdapter(middleware: ErrorMiddleware) {

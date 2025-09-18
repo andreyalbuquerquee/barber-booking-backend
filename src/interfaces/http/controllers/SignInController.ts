@@ -1,7 +1,7 @@
-import type { Controller } from '../shared/http/interfaces/Controller';
-import type { HttpRequest, HttpResponse } from '../shared/http/interfaces/http';
-import type { SignInUseCase } from '../useCases/SignInUseCase';
-import { signInDtoSchema } from '../shared/http/dtos/SignInDto';
+import { signInDtoSchema } from '../dtos/SignInDto';
+import type { SignInUseCase } from '../../../application/useCases/SignInUseCase';
+import type { Controller } from '../protocols/Controller';
+import type { HttpRequest, HttpResponse } from '../protocols/http';
 
 export class SignInController implements Controller {
   constructor(private readonly useCase: SignInUseCase) {}
