@@ -1,7 +1,7 @@
 import { ListServicesQuerySchema } from '../dtos/ListServicesDto';
 import type { ListServicesUseCase } from '../../../application/useCases/ListServicesUseCase';
 import type { Controller } from '../protocols/Controller';
-import type { HttpRequest, HttpResponse } from '../protocols/http';
+import { HttpStatusCode, type HttpRequest, type HttpResponse } from '../protocols/http';
 import { ServicePresenter } from '../presenters/ServicePresenter';
 
 
@@ -18,7 +18,7 @@ export class ListServicesController implements Controller {
     });
 
     return {
-      statusCode: 200,
+      statusCode: HttpStatusCode.OK,
       body: {
         services: ServicePresenter.listToHTTP(services),
         total: totalServices,

@@ -1,11 +1,13 @@
 import { Router } from 'express';
 import { authRouter } from './authRouter.js';
 import { serviceRouter } from './serviceRouter.js';
+import { professionalRouter } from './professionalRouter';
 
 export const appRouter = Router();
 
 appRouter.use('/auth', authRouter);
 appRouter.use('/services', serviceRouter);
+appRouter.use('/professionals', professionalRouter);
 
 appRouter.get('/healthcheck', async (req, res) => { 
   res.send({ ok: true }).status(201);

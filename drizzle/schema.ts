@@ -21,11 +21,11 @@ export const users = pgTable("users", {
 
 export const professionals = pgTable("professionals", {
 	id: uuid().defaultRandom().primaryKey().notNull(),
-	userId: uuid("user_id"),
+	userId: uuid("user_id").notNull(),
 	fullName: text("full_name").notNull(),
 	slug: text().notNull(),
-	phone: text(),
-	bio: text(),
+	phone: text().notNull(),
+	bio: text().notNull(),
 	timezone: text().default('America/Recife').notNull(),
 	active: boolean().default(true).notNull(),
 	createdAt: timestamp("created_at", { withTimezone: true, mode: 'string' }).defaultNow().notNull(),
@@ -36,7 +36,8 @@ export const professionals = pgTable("professionals", {
 			columns: [table.userId],
 			foreignColumns: [users.id],
 			name: "professionals_user_id_fkey"
-		}).onDelete("set null"),
+		}).onDelete("restrict"),
+	unique("professionals_user_id_key").on(table.userId),
 	unique("professionals_slug_key").on(table.slug),
 	check("chk_professionals_full_name_len", sql`char_length(full_name) >= 2`),
 ]);

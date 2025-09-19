@@ -4,7 +4,7 @@ import { Service } from '../../../../domain/entities/Service';
 export type ServiceRowSelect = typeof services.$inferSelect;
 
 export const ServiceMapper = {
-  toDomain(row: ServiceRowSelect) {
+  toDomain(row: ServiceRowSelect): Service {
     return new Service({
       name: row.name,
       priceBrl: row.priceBrl ? Number(row.priceBrl) : null,

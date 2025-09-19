@@ -1,7 +1,7 @@
 import { signInDtoSchema } from '../dtos/SignInDto';
 import type { SignInUseCase } from '../../../application/useCases/SignInUseCase';
 import type { Controller } from '../protocols/Controller';
-import type { HttpRequest, HttpResponse } from '../protocols/http';
+import { HttpStatusCode, type HttpRequest, type HttpResponse } from '../protocols/http';
 
 export class SignInController implements Controller {
   constructor(private readonly useCase: SignInUseCase) {}
@@ -13,7 +13,7 @@ export class SignInController implements Controller {
     const response = await this.useCase.execute(parsedBody);
 
     return {
-      statusCode: 200,
+      statusCode: HttpStatusCode.OK,
       body: response,
     };
   }
