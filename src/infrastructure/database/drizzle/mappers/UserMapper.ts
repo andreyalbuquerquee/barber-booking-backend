@@ -1,6 +1,6 @@
 import { users } from '../../../../../drizzle/schema';
-import { User } from '../../../../domain/entities/User';
-import type { RoleCode } from '../../../../domain/entities/Role';
+import { User } from '@domain/entities/User';
+import type { RoleCode } from '@domain/entities/Role';
 
 export type UserRowInsert = typeof users.$inferInsert;
 export type UserRowSelect = typeof users.$inferSelect;

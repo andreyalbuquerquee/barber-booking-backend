@@ -1,4 +1,4 @@
-import type { Service } from '../entities/Service';
+import type { Service } from '@domain/entities/Service';
 
 export interface ServicesQuery {
   page?: number;

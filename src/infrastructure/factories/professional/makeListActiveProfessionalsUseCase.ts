@@ -1,4 +1,6 @@
-import { ListActiveProfessionalsUseCase } from '../../../application/useCases/ListActiveProfessionalsUseCase';
+import { 
+  ListActiveProfessionalsUseCase 
+} from '@application/useCases/professionals/ListActiveProfessionalsUseCase';
 import { makeProfessionalRepository } from './makeProfessionalRepository';
 
 export function makeListActiveProfessionalsUseCase() {

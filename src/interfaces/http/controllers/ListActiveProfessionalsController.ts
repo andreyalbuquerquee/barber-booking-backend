@@ -1,4 +1,6 @@
-import type { ListActiveProfessionalsUseCase } from '../../../application/useCases/ListActiveProfessionalsUseCase';
+import type {
+  ListActiveProfessionalsUseCase
+} from '@application/useCases/professionals/ListActiveProfessionalsUseCase';
 import { ProfessionalPresenter } from '../presenters/ProfessionalPresenter';
 import type { Controller } from '../protocols/Controller';
 import { HttpStatusCode, type HttpRequest, type HttpResponse } from '../protocols/http';

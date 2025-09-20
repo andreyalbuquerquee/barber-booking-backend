@@ -1,4 +1,4 @@
-import { SignInUseCase } from "../../../application/useCases/SignInUseCase";
+import { SignInUseCase } from "@application/useCases/auth/SignInUseCase";
 import { makeUserRepository } from './makeUserRepository';
 
 export function makeSignInUseCase() {

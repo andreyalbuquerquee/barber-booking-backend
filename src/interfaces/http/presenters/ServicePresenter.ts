@@ -1,4 +1,4 @@
-import type { Service } from '../../../domain/entities/Service';
+import type { Service } from '@domain/entities/Service';
 
 export type ServiceDTO = {
   id: string;

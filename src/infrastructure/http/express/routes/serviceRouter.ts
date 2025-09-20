@@ -1,6 +1,8 @@
 import { Router } from 'express';
 import { routeAdapter } from '../adapters/routeAdapter';
-import { makeListServicesController } from '../../../factories/service/makeListServicesController';
+import {
+  makeListServicesController
+} from '@infrastructure/factories/service/makeListServicesController';
 
 export const serviceRouter = Router();
 

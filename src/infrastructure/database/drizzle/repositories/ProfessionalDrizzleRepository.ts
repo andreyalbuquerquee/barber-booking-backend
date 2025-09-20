@@ -1,7 +1,7 @@
 import { eq } from 'drizzle-orm';
 import { professionals } from '../../../../../drizzle/schema';
-import type { Professional } from '../../../../domain/entities/Professional';
-import type { ProfessionalRepository } from '../../../../domain/repositories/ProfessionalRepository';
+import type { Professional } from '@domain/entities/Professional';
+import type { ProfessionalRepository } from '@application/ports/repositories/ProfessionalRepository';
 import type { DB } from '../connection';
 import { ProfessionalMapper } from '../mappers/ProfessionalMapper';
 

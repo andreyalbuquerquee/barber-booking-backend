@@ -1,5 +1,5 @@
 import type { services } from '../../../../../drizzle/schema';
-import { Service } from '../../../../domain/entities/Service';
+import { Service } from '@domain/entities/Service';
 
 export type ServiceRowSelect = typeof services.$inferSelect;
 

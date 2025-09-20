@@ -1,8 +1,10 @@
 import { compare } from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import { env } from '../../config/env';
-import type { UserRepository } from '../../domain/repositories/UserRepository';
-import { UnauthorizedError } from '../errors/UnauthorizedError';
+import { env } from '../../../config/env';
+import type {
+  UserRepository
+} from '@application/ports/repositories/UserRepository';
+import { UnauthorizedError } from '@application/errors/UnauthorizedError';
 
 interface Input {
   email: string;

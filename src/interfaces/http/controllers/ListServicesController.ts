@@ -1,5 +1,5 @@
 import { ListServicesQuerySchema } from '../dtos/ListServicesDto';
-import type { ListServicesUseCase } from '../../../application/useCases/ListServicesUseCase';
+import type { ListServicesUseCase } from '@application/useCases/services/ListServicesUseCase';
 import type { Controller } from '../protocols/Controller';
 import { HttpStatusCode, type HttpRequest, type HttpResponse } from '../protocols/http';
 import { ServicePresenter } from '../presenters/ServicePresenter';

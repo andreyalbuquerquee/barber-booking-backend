@@ -1,4 +1,4 @@
-import { ListServicesUseCase } from '../../../application/useCases/ListServicesUseCase';
+import { ListServicesUseCase } from '@application/useCases/services/ListServicesUseCase';
 import { makeServiceRepository } from './makeServiceRepository';
 
 export function makeListServicesUseCase() {

@@ -1,7 +1,10 @@
 import { services } from '../../../../../drizzle/schema';
 import { and, eq, count, type SQL } from 'drizzle-orm';
-import type { Service } from '../../../../domain/entities/Service';
-import type { Paginated, ServiceRepository, ServicesQuery } from '../../../../domain/repositories/ServiceRepository';
+import type { Service } from '@domain/entities/Service';
+import type { 
+  Paginated, 
+  ServiceRepository, 
+  ServicesQuery } from '@application/ports/repositories/ServiceRepository';
 import type { DB } from '../connection';
 import { ServiceMapper } from '../mappers/ServiceMapper';
 

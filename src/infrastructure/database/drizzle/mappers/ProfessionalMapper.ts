@@ -1,5 +1,5 @@
-import type { professionals } from '../../../../../drizzle/schema'
-import { Professional } from '../../../../domain/entities/Professional';
+import type { professionals } from '../../../../../drizzle/schema';
+import { Professional } from '@domain/entities/Professional';
 
 export type ProfessionalRowSelect = typeof professionals.$inferSelect;
 

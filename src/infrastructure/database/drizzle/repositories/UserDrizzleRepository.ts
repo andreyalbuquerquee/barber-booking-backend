@@ -1,5 +1,5 @@
-import type { User } from '../../../../domain/entities/User';
-import type { UserRepository } from '../../../../domain/repositories/UserRepository';
+import type { User } from '@domain/entities/User';
+import type { UserRepository } from '@application/ports/repositories/UserRepository';
 import { eq } from 'drizzle-orm';
 import { users } from '../../../../../drizzle/schema';
 import { UserMapper } from '../mappers/UserMapper';

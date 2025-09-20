@@ -1,4 +1,4 @@
-import type { Professional } from '../../../domain/entities/Professional';
+import type { Professional } from '@domain/entities/Professional';
 
 export type ProfessionalDTO = {
   id: string;

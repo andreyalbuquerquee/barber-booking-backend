@@ -1,4 +1,4 @@
-import type { RoleCode } from '../../../domain/entities/Role';
+import type { RoleCode } from '@domain/entities/Role';
 
 export interface HttpRequest {
   body: Record<string, any>;

@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { routeAdapter } from '../adapters/routeAdapter';
-import { makeSignInController } from '../../../factories/user/makeSignInController';
+import { makeSignInController } from '@infrastructure/factories/user/makeSignInController';
 
 export const authRouter = Router();
 

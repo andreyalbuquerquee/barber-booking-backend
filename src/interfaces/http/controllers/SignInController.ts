@@ -1,5 +1,5 @@
 import { signInDtoSchema } from '../dtos/SignInDto';
-import type { SignInUseCase } from '../../../application/useCases/SignInUseCase';
+import type { SignInUseCase } from '@application/useCases/auth/SignInUseCase';
 import type { Controller } from '../protocols/Controller';
 import { HttpStatusCode, type HttpRequest, type HttpResponse } from '../protocols/http';
 

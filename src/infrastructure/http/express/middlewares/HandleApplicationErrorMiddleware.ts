@@ -1,7 +1,7 @@
 import { ZodError } from 'zod';
 import { ErrorMiddleware } from '../../../../interfaces/http/protocols/ErrorMiddleware';
 import { HttpResponse, HttpStatusCode } from '../../../../interfaces/http/protocols/http';
-import { ApplicationError } from '../../../../application/errors/ApplicationError';
+import { ApplicationError } from '@application/errors/ApplicationError';
 import { errorToHttpStatus, serializeError } from '../../../../interfaces/http/errorMapper';
 
 export class HandleApplicationErrorMiddleware implements ErrorMiddleware {
