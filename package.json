@@ -3,7 +3,9 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "build": "tsup src/main.ts --format cjs --dts false",
-    "test": "vitest"
+    "db:migrate": "drizzle-kit migrate", 
+    "db:introspect": "drizzle-kit introspect --out ./src/infrastructure/database/drizzle",
+    "db:studio": "drizzle-kit studio --port 4983"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",

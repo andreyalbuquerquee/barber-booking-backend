@@ -1,5 +1,5 @@
-import type { Service } from '../../domain/entities/Service';
-import type { ServiceRepository } from '../../domain/repositories/ServiceRepository';
+import type { Service } from '@domain/entities/Service';
+import type { ServiceRepository } from '../../ports/repositories/ServiceRepository';
 
 interface Input {
   page?: number;

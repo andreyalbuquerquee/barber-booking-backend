@@ -1,4 +1,4 @@
-import { users } from '../../../../../drizzle/schema';
+import { users } from '../migrations/schema';
 import { User } from '@domain/entities/User';
 import type { RoleCode } from '@domain/entities/Role';
 

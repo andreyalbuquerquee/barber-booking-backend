@@ -17,6 +17,7 @@ app.use(cors({
 app.use(express.json());
 app.use(pinoHttp());
 app.use(appRouter);
+
 app.use(errorMiddlewareAdapter(new HandleApplicationErrorMiddleware()));
 
 export { app };

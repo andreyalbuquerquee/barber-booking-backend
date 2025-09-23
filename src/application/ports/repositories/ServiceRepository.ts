@@ -13,4 +13,5 @@ export interface Paginated<T> {
 
 export abstract class ServiceRepository {
   abstract list(params: ServicesQuery): Promise<Paginated<Service>>;
+  abstract findById(id: string): Promise<Service | null>;
 }

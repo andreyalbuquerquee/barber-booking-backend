@@ -1,5 +1,5 @@
-import type { Professional } from '../../domain/entities/Professional';
-import type { ProfessionalRepository } from '../../domain/repositories/ProfessionalRepository';
+import type { Professional } from '@domain/entities/Professional';
+import type { ProfessionalRepository } from '../../ports/repositories/ProfessionalRepository';
 
 interface Output {
   professionals: Professional[];

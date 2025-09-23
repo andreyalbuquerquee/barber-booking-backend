@@ -1,7 +1,7 @@
 import type { User } from '@domain/entities/User';
 import type { UserRepository } from '@application/ports/repositories/UserRepository';
 import { eq } from 'drizzle-orm';
-import { users } from '../../../../../drizzle/schema';
+import { users } from '../migrations/schema';
 import { UserMapper } from '../mappers/UserMapper';
 import type { DB } from '../connection';
 

@@ -1,6 +1,6 @@
 import { Pool } from 'pg';
 import { drizzle, type NodePgDatabase } from 'drizzle-orm/node-postgres';
-import * as schema from '../../../../drizzle/schema';
+import * as schema from '../drizzle/migrations/schema';
 import { env } from '../../../config/env';
 
 let pool: Pool | null = null;
