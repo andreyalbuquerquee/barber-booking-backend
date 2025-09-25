@@ -1,5 +1,6 @@
 export type AppErrorCode =
   | 'UNAUTHORIZED'
+  | 'NOTFOUND'
   | 'INTERNAL';
 
 export class ApplicationError extends Error {

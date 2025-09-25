@@ -14,6 +14,7 @@ import type {
 } from '@application/ports/repositories/WorkingHourRepository';
 import { overlapsAnyMin } from '../../shared/utils/interval';
 import { minutesToHHmm, getWeekday, timeStringToMinutes } from '@application/shared/utils/time';
+import { NotFoundError } from '@application/errors/NotFoundError';
 
 interface Input {
   professionalId: string;
@@ -45,7 +46,13 @@ export class GetDailyAvailabilityUseCase {
       this.serviceRepo.findById(serviceId),
     ]);
 
-    if (!professional || !service || !service.active) return { slots: [] };
+    if (!professional) {
+      throw new NotFoundError('Profissional não encontrado!')
+    };
+
+    if (!service || !service.active) {
+      throw new NotFoundError('Serviço não encontrado!')
+    };
 
     const weekday = getWeekday(date);
     const wh = await this.workingHoursRepo.findByProfessionalAndWeekday(professionalId, weekday);
